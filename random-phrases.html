@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Phrases</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+
+    <style>
+        body {font-family: 'Graduate', cursive; background-color: #4F6D7A;}
+        main {margin: 0 auto; height: 75vh; width: 65vw; background-image: url('https://brobible.com/wp-content/uploads/2019/03/stephen-a-smith-green-screen.jpg'); background-size: 300px auto; border: 5px solid #C0D6DF;}
+        main p {text-align: center; color:white; font-size: x-large; background-color: black;}
+        main #random {margin: 0; position: absolute; top: 75%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background-color: #C0D6DF; font-family: 'Graduate', cursive; font-size: x-large;}
+        main #random:hover {background-color: #4A6FA5;}
+    </style>
+</head>
+<body>
+    <h1>Stephen A. Smith Says...</h1>
+    
+    <main>
+        <p id="phrase"></p>
+        <button id="random">Stephen Quote!</button>
+    </main>
+    
+
+    <footer>
+        <p id="name">Created by Jabrecia Washington</p>
+    </footer>
+
+
+    <script>
+        "use strict"
+
+        window.onload = function(){
+            displayQuote();
+        }
+
+        //we need to add a function to the buttons onClick event that shows a random phrase from the phrase array
+        let phrases = ["I’m here to tell you right now, we don’t care. *bursts into laughter* We don’t care!", "We have been hoodwinked, bamboozled, led astray, run amok, and flat-out DECEIVED!", "Stay OFF the WEEEEE-DUH!", "KWAME BROWN IS A BONAFIDE SCRUB", "Listen here Mr Jabba the Hut you fat sloggily no good lazy bum of a quarterback", "WHAT?! WHAT?! THAT IS BLASPHEMOUS! THAT IS BLASPHEMOUS!", "YOU'RE ASKING THE WRONG PERSON THERE NEEDS TO BE AN INVESTIGATION TO BE QUITE HONEST WITH YOU MAX KELLERMAN HE LOOKED LIKE HE WAS DRUGGED", "I still think it’s disgraceful. The fact of the matter is that this is a young stud. Somebody’s got to figure something out."];
+
+        function displayQuote(e){
+            //use random number to grab a random index from the array
+            let randNum = Math.floor(Math.random() * phrases.length);
+            console.log(randNum);
+            document.getElementById("phrase").innerHTML = phrases[randNum];
+        }
+
+        let randButton = document.getElementById("random");
+        randButton.addEventListener("click", displayQuote);
+    </script>
+</body>
+</html>
